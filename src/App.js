@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import { Home } from "./Home";
+import { Bulbasaur } from "./components/bulbasaur";
+import { Ivysaur } from "./components/ivysaur";
+import { Venusaur } from "./components/venusaur";
+import { Charmander } from "./components/charmander";
+import { Charmeleon } from "./components/charmeleon";
+import { Notfound } from "./components/notfound";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Home>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/bulbasaur" element={<Bulbasaur />} />
+          <Route path="/ivysaur" element={<Ivysaur />} />
+          <Route path="/venusaur" element={<Venusaur />} />
+          <Route path="/charmander" element={<Charmander />} />
+          <Route path="/charmeleon" element={<Charmeleon />} />
+          <Route path="*" element={<Notfound />} />
+        </Routes>
+      </BrowserRouter>
+    </Home>
   );
 }
 
